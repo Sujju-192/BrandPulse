@@ -3,7 +3,8 @@ import {
   Check, Sparkles, X, TrendingUp, Users, Target,
   DollarSign, Mic, Globe, Plus, AlertCircle,
   Trash2, Edit, Eye, Calendar, Filter, Search,
-  ChevronDown, MessageSquare, BarChart, Save
+  ChevronDown, MessageSquare, BarChart, Save,
+  Copy  // ← Added for Discuss modal
 } from 'lucide-react';
 
 export default function Ideas() {
@@ -22,7 +23,7 @@ export default function Ideas() {
         date: '2024-01-15',
         status: 'Active'
       },
-      // ... other sample data
+      // Add your other sample ideas here if needed
     ];
   });
 
@@ -160,7 +161,6 @@ export default function Ideas() {
   // ========== DISCUSS IDEA ==========
   const openDiscussModal = (idea) => {
     setDiscussingIdea(idea);
-    // Generate a helpful discussion prompt
     const prompt = `Let's discuss the campaign for ${idea.brandName} (${idea.productService}).\n\nGoal: ${idea.goal}\nAudience: ${idea.targetAudience}\nPlatforms: ${idea.platforms.join(', ')}\nTone: ${idea.tone}\nBudget: ${idea.budgetRange}\n\nWhat are your thoughts on creative angles or execution strategies?`;
     setDiscussMessage(prompt);
     setShowDiscussModal(true);
@@ -178,7 +178,7 @@ export default function Ideas() {
     }
   };
 
-  // ========== FILTER & SORT ==========
+  // ========== FILTER ==========
   const filteredIdeas = ideas.filter(idea => {
     const matchesSearch = 
       idea.brandName.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -243,22 +243,236 @@ export default function Ideas() {
         </button>
       </div>
 
-      {/* Add Idea Form (Conditional) - same as before, omitted for brevity, but you can keep it */}
+      {/* ========== FULL ADD IDEA FORM ========== */}
       {showAddForm && (
-        // ... (keep your existing add form code) ...
         <div className="bg-gradient-to-br from-gray-900/50 to-gray-800/20 rounded-2xl border border-gray-800 p-6 mb-8">
           <h2 className="text-xl font-bold mb-6">Create New Idea</h2>
           <form onSubmit={handleSubmit} className="space-y-6">
-            {/* ... your existing form fields ... */}
+            {/* Brand Name & Product/Service Row */}
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <label className="flex items-center gap-2 text-sm font-medium text-gray-300 mb-2">
+                  <Target className="w-4 h-4" />
+                  Brand Name *
+                </label>
+                <input
+                  type="text"
+                  name="brandName"
+                  value={formData.brandName}
+                  onChange={handleChange}
+                  placeholder="Enter brand name"
+                  className={`w-full px-4 py-3 bg-gray-900/50 border rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500/50 transition-all ${
+                    errors.brandName ? 'border-red-500/50' : 'border-gray-800 hover:border-gray-700'
+                  }`}
+                />
+                {errors.brandName && (
+                  <div className="flex items-center gap-1 mt-2 text-red-400 text-sm">
+                    <AlertCircle className="w-4 h-4" />
+                    {errors.brandName}
+                  </div>
+                )}
+              </div>
+
+              <div>
+                <label className="flex items-center gap-2 text-sm font-medium text-gray-300 mb-2">
+                  <TrendingUp className="w-4 h-4" />
+                  Product / Service *
+                </label>
+                <input
+                  type="text"
+                  name="productService"
+                  value={formData.productService}
+                  onChange={handleChange}
+                  placeholder="What are you selling/offering?"
+                  className={`w-full px-4 py-3 bg-gray-900/50 border rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500/50 transition-all ${
+                    errors.productService ? 'border-red-500/50' : 'border-gray-800 hover:border-gray-700'
+                  }`}
+                />
+                {errors.productService && (
+                  <div className="flex items-center gap-1 mt-2 text-red-400 text-sm">
+                    <AlertCircle className="w-4 h-4" />
+                    {errors.productService}
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Target Audience */}
+            <div>
+              <label className="flex items-center gap-2 text-sm font-medium text-gray-300 mb-2">
+                <Users className="w-4 h-4" />
+                Target Audience *
+              </label>
+              <textarea
+                name="targetAudience"
+                value={formData.targetAudience}
+                onChange={handleChange}
+                placeholder="Describe your ideal customers (age, interests, demographics, etc.)"
+                rows="2"
+                className={`w-full px-4 py-3 bg-gray-900/50 border rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500/50 transition-all resize-none ${
+                  errors.targetAudience ? 'border-red-500/50' : 'border-gray-800 hover:border-gray-700'
+                }`}
+              />
+              {errors.targetAudience && (
+                <div className="flex items-center gap-1 mt-2 text-red-400 text-sm">
+                  <AlertCircle className="w-4 h-4" />
+                  {errors.targetAudience}
+                </div>
+              )}
+            </div>
+
+            {/* Goal Selection */}
+            <div>
+              <label className="flex items-center gap-2 text-sm font-medium text-gray-300 mb-3">
+                <Target className="w-4 h-4" />
+                Campaign Goal *
+              </label>
+              <div className="grid grid-cols-3 gap-2">
+                {goalOptions.map((goal) => (
+                  <button
+                    key={goal}
+                    type="button"
+                    onClick={() => handleChange({ target: { name: 'goal', value: goal } })}
+                    className={`
+                      px-3 py-2 rounded-lg border transition-all duration-300 text-sm
+                      ${formData.goal === goal 
+                        ? 'bg-gradient-to-r from-purple-900/40 to-pink-900/20 border-purple-500 text-white' 
+                        : 'bg-gray-900/50 border-gray-800 hover:border-gray-700 hover:bg-gray-800/30 text-gray-300'
+                      }
+                    `}
+                  >
+                    {goal}
+                  </button>
+                ))}
+              </div>
+              {errors.goal && (
+                <div className="flex items-center gap-1 mt-2 text-red-400 text-sm">
+                  <AlertCircle className="w-4 h-4" />
+                  {errors.goal}
+                </div>
+              )}
+            </div>
+
+            {/* Platforms Selection */}
+            <div>
+              <label className="flex items-center gap-2 text-sm font-medium text-gray-300 mb-3">
+                <Globe className="w-4 h-4" />
+                Platforms *
+              </label>
+              <div className="flex flex-wrap gap-2">
+                {platformOptions.map((platform) => (
+                  <button
+                    key={platform}
+                    type="button"
+                    onClick={() => handlePlatformToggle(platform)}
+                    className={`
+                      px-3 py-2 rounded-lg border transition-all duration-300 text-sm flex items-center gap-2
+                      ${formData.platforms.includes(platform)
+                        ? 'bg-gradient-to-r from-blue-900/30 to-cyan-900/20 border-blue-500 text-white' 
+                        : 'bg-gray-900/50 border-gray-800 hover:border-gray-700 hover:bg-gray-800/30 text-gray-300'
+                      }
+                    `}
+                  >
+                    {platform}
+                    {formData.platforms.includes(platform) && <Check className="w-3 h-3" />}
+                  </button>
+                ))}
+              </div>
+              {errors.platforms && (
+                <div className="flex items-center gap-1 mt-2 text-red-400 text-sm">
+                  <AlertCircle className="w-4 h-4" />
+                  {errors.platforms}
+                </div>
+              )}
+            </div>
+
+            {/* Budget Range & Tone */}
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <label className="flex items-center gap-2 text-sm font-medium text-gray-300 mb-3">
+                  <DollarSign className="w-4 h-4" />
+                  Budget Range *
+                </label>
+                <div className="grid grid-cols-2 gap-2">
+                  {budgetRanges.map((range) => (
+                    <button
+                      key={range}
+                      type="button"
+                      onClick={() => handleChange({ target: { name: 'budgetRange', value: range } })}
+                      className={`
+                        px-3 py-2 rounded-lg border transition-all duration-300 text-sm
+                        ${formData.budgetRange === range 
+                          ? 'bg-gradient-to-r from-green-900/30 to-emerald-900/20 border-green-500 text-white' 
+                          : 'bg-gray-900/50 border-gray-800 hover:border-gray-700 hover:bg-gray-800/30 text-gray-300'
+                        }
+                      `}
+                    >
+                      {range}
+                    </button>
+                  ))}
+                </div>
+                {errors.budgetRange && (
+                  <div className="flex items-center gap-1 mt-2 text-red-400 text-sm">
+                    <AlertCircle className="w-4 h-4" />
+                    {errors.budgetRange}
+                  </div>
+                )}
+              </div>
+
+              <div>
+                <label className="flex items-center gap-2 text-sm font-medium text-gray-300 mb-3">
+                  <Mic className="w-4 h-4" />
+                  Brand Tone *
+                </label>
+                <div className="grid grid-cols-2 gap-2">
+                  {toneOptions.slice(0, 6).map((tone) => (
+                    <button
+                      key={tone}
+                      type="button"
+                      onClick={() => handleChange({ target: { name: 'tone', value: tone } })}
+                      className={`
+                        px-3 py-2 rounded-lg border transition-all duration-300 text-sm
+                        ${formData.tone === tone 
+                          ? 'bg-gradient-to-r from-purple-900/40 to-pink-900/20 border-purple-500 text-white' 
+                          : 'bg-gray-900/50 border-gray-800 hover:border-gray-700 hover:bg-gray-800/30 text-gray-300'
+                        }
+                      `}
+                    >
+                      {tone}
+                    </button>
+                  ))}
+                </div>
+                {errors.tone && (
+                  <div className="flex items-center gap-1 mt-2 text-red-400 text-sm">
+                    <AlertCircle className="w-4 h-4" />
+                    {errors.tone}
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Form Actions */}
             <div className="flex gap-3 pt-4 border-t border-gray-800">
-              <button type="submit" className="px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg flex items-center gap-2">Save Idea</button>
-              <button type="button" onClick={() => setShowAddForm(false)} className="px-6 py-3 bg-gray-900/50 rounded-lg">Cancel</button>
+              <button
+                type="submit"
+                className="px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold rounded-lg transition-all flex items-center gap-2"
+              >
+                <Check className="w-5 h-5" />
+                Save Idea
+              </button>
+              <button
+                type="button"
+                onClick={() => setShowAddForm(false)}
+                className="px-6 py-3 bg-gray-900/50 hover:bg-gray-800 border border-gray-800 rounded-lg font-medium transition-colors"
+              >
+                Cancel
+              </button>
             </div>
           </form>
         </div>
       )}
 
-      {/* Search & Filter Bar */}
+      {/* Search and Filter Bar */}
       <div className="bg-gradient-to-br from-gray-900/50 to-gray-800/20 rounded-2xl border border-gray-800 p-4 mb-6">
         <div className="flex flex-col md:flex-row gap-4">
           <div className="flex-1 relative">
