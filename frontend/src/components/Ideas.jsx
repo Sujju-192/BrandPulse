@@ -4,7 +4,7 @@ import {
   DollarSign, Mic, Globe, Plus, AlertCircle,
   Trash2, Edit, Eye, Calendar, Filter, Search,
   ChevronDown, MessageSquare, BarChart, Save,
-  Copy  // ← Added for Discuss modal
+  Copy
 } from 'lucide-react';
 import {
   addDoc,
@@ -81,7 +81,7 @@ export default function Ideas() {
   const [filterStatus, setFilterStatus] = useState('All');
   const [showAddForm, setShowAddForm] = useState(false);
 
-  const platformOptions = ['Instagram', 'LinkedIn', 'YouTube', 'Facebook', 'Twitter/X', 'TikTok', 'Pinterest', 'WhatsApp', 'Email'];
+  const platformOptions = ['Instagram', 'LinkedIn', 'YouTube', 'Facebook', 'Twitter/X', 'TikTok', 'Pinterest', 'WhatsApp'];
   const goalOptions = ['Leads', 'Awareness', 'Sales', 'Engagement', 'Traffic', 'Conversions'];
   const toneOptions = ['Professional', 'Fun/Casual', 'Premium/Luxury', 'Youth/Gen-Z', 'Friendly', 'Bold/Edgy', 'Inspirational'];
   const budgetRanges = ['INR.100 - INR.500', 'INR.500 - INR.2,000', 'INR.2,000 - INR.5,000', 'INR.5,000 - INR.10,000', 'INR.10,000+', 'Custom'];

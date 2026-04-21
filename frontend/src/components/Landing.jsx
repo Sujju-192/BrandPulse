@@ -172,7 +172,7 @@ export default function Landing() {
   };
   
   const stats = [
-    { value: '10K+', label: 'Campaigns Launched', icon: <Rocket className="w-4 h-4" />, color: "from-purple-500 to-pink-500" },
+    { value: '10K+', label: 'BrandPluses Launched', icon: <Rocket className="w-4 h-4" />, color: "from-purple-500 to-pink-500" },
     { value: '95%', label: 'Client Satisfaction', icon: <Star className="w-4 h-4" />, color: "from-yellow-500 to-orange-500" },
     { value: '3x', label: 'Faster Creation', icon: <Zap className="w-4 h-4" />, color: "from-blue-500 to-cyan-500" },
     { value: '40%', label: 'Avg. Growth', icon: <TrendingUp className="w-4 h-4" />, color: "from-green-500 to-emerald-500" },
@@ -183,7 +183,7 @@ export default function Landing() {
       category: 'AI Strategy',
       items: [
         { icon: <Cpu className="w-5 h-5" />, title: 'Smart Brief Analyzer', desc: 'Transform ideas into structured strategy' },
-        { icon: <Target className="w-5 h-5" />, title: 'Campaign Engine', desc: 'Autonomous theme & positioning' },
+        { icon: <Target className="w-5 h-5" />, title: 'BrandPluse Engine', desc: 'Autonomous theme & positioning' },
         { icon: <Users className="w-5 h-5" />, title: 'Multi-Agent AI', desc: 'Coordinated specialized agents' },
       ]
     },
@@ -200,7 +200,7 @@ export default function Landing() {
       items: [
         { icon: <BarChart className="w-5 h-5" />, title: 'Competitor Insights', desc: 'Strategic differentiation' },
         { icon: <Shield className="w-5 h-5" />, title: 'Brand Guardrails', desc: 'Consistency checks' },
-        { icon: <Globe className="w-5 h-5" />, title: 'Multi-Language', desc: 'Global campaign support' },
+        { icon: <Globe className="w-5 h-5" />, title: 'Multi-Language', desc: 'Global BrandPluse support' },
       ]
     }
   ];
@@ -208,7 +208,7 @@ export default function Landing() {
   const processSteps = [
     { number: '01', title: 'Describe Your Vision', desc: 'Share your business story, goals, and audience.' },
     { number: '02', title: 'AI Strategy Session', desc: 'Our AI analyzes and crafts your unique growth plan.' },
-    { number: '03', title: 'Launch & Scale', desc: 'Deploy ready-to-use campaigns and watch growth happen.' },
+    { number: '03', title: 'Launch & Scale', desc: 'Deploy ready-to-use BrandPluses and watch growth happen.' },
   ];
 
   return (
@@ -249,7 +249,7 @@ export default function Landing() {
             <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center">
               <Rocket className="w-6 h-6" />
             </div>
-            <span className="text-2xl font-light tracking-tight">Campaign<span className="font-bold">AI</span></span>
+            <span className="text-2xl font-light tracking-tight">BrandPluse<span className="font-bold">AI</span></span>
           </motion.div>
           
           <div className="hidden lg:flex items-center gap-8">
@@ -345,7 +345,7 @@ export default function Landing() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
           >
-            We transform your vision into complete marketing strategies, creative assets, and growth campaigns—all powered by artificial intelligence.
+            We transform your vision into complete marketing strategies, creative assets, and growth BrandPluses—all powered by artificial intelligence.
           </motion.p>
           
           <motion.div 
@@ -418,7 +418,7 @@ export default function Landing() {
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            From strategy to execution, our AI handles every aspect of campaign creation
+            From strategy to execution, our AI handles every aspect of BrandPluse creation
           </motion.p>
         </div>
 
@@ -543,7 +543,7 @@ export default function Landing() {
                 viewport={{ once: true }}
                 transition={{ delay: 0.2 }}
               >
-                Join forward-thinking businesses already accelerating with AI-powered campaigns.
+                Join forward-thinking businesses already accelerating with AI-powered BrandPluses.
               </motion.p>
               
               <MagneticButton
@@ -586,13 +586,13 @@ export default function Landing() {
                 <Rocket className="w-6 h-6" />
               </div>
               <div>
-                <div className="text-xl font-light">Campaign<span className="font-bold">AI</span></div>
+                <div className="text-xl font-light">BrandPluse<span className="font-bold">AI</span></div>
                 <div className="text-sm text-gray-500">AI-powered business growth</div>
               </div>
             </motion.div>
             
             <div className="text-center md:text-right">
-              <div className="text-gray-500 text-sm mb-2">© 2024 CampaignAI. All rights reserved.</div>
+              <div className="text-gray-500 text-sm mb-2">© 2024 BrandPluseAI. All rights reserved.</div>
               <div className="flex gap-6 text-gray-400 text-sm">
                 {['Privacy', 'Terms', 'Contact'].map((item) => (
                   <motion.a 

@@ -83,7 +83,7 @@ const Home = () => {
           <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center">
             <Rocket className="w-4 h-4" />
           </div>
-          <span className="font-bold text-lg">CampaignAI</span>
+          <span className="font-bold text-lg">BrandPluseAI</span>
         </div>
         
         <div className="w-10"></div>
@@ -113,7 +113,7 @@ const Home = () => {
               <Rocket className="w-6 h-6" />
             </div>
             <div>
-              <div className="text-2xl font-bold">CampaignAI</div>
+              <div className="text-2xl font-bold">BrandPluseAI</div>
               <div className="text-sm text-gray-400">Growth Studio</div>
             </div>
           </div>
