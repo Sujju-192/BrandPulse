@@ -80,7 +80,7 @@ export default function Strategy() {
       const requestBody = extractDataFromPrompt(content.prompt);
       console.log("Sending to backend:", requestBody);
       
-      const res = await fetch("http://localhost:3000/ai-text", {
+      const res = await fetch("/ai-text", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(requestBody),

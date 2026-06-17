@@ -64,7 +64,7 @@ export default function Profile() {
   // User data
   const userData = {
     name: 'Alex Chen',
-    email: 'alex@campaignai.com',
+    email: 'alex@brandpulse.ai',
     role: 'Marketing Director',
     company: 'TechFlow Inc.',
     joinDate: '2023-08-15',

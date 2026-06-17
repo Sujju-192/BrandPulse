@@ -83,7 +83,7 @@ const Home = () => {
           <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center">
             <Rocket className="w-4 h-4" />
           </div>
-          <span className="font-bold text-lg">BrandPluseAI</span>
+          <span className="font-bold text-lg">BrandPulse AI</span>
         </div>
         
         <div className="w-10"></div>
@@ -113,7 +113,7 @@ const Home = () => {
               <Rocket className="w-6 h-6" />
             </div>
             <div>
-              <div className="text-2xl font-bold">BrandPluseAI</div>
+              <div className="text-2xl font-bold">BrandPulse AI</div>
               <div className="text-sm text-gray-400">Growth Studio</div>
             </div>
           </div>
@@ -172,7 +172,7 @@ const Home = () => {
         {/* Sidebar Footer */}
         <div className="p-4 border-t border-gray-800">
           <div className="mb-4 p-3 bg-gray-900/60 border border-gray-800 rounded-xl">
-            <div className="text-sm font-semibold truncate">{user?.displayName || "Campaign User"}</div>
+            <div className="text-sm font-semibold truncate">{user?.displayName || "BrandPulse User"}</div>
             <div className="text-xs text-gray-400 truncate">{user?.email}</div>
             <button
               onClick={logout}

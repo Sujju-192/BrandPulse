@@ -1,23 +1,17 @@
-import express from "express";
-import cors from "cors";
-import dotenv from "dotenv";
-import { GoogleGenAI } from "@google/genai";
+import { Router } from "express";
+import { getGeminiClient } from "../lib/gemini.js";
 
-dotenv.config();
+const router = Router();
 
-const app = express();
-const PORT = process.env.PORT || 3000;
-
-app.use(cors());
-app.use(express.json());
-
-const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
-
-app.get("/health", (req, res) => {
-  res.json({ status: "ok", message: "Server is running", timestamp: new Date().toISOString() });
+router.get("/health", (_req, res) => {
+  res.json({
+    status: "ok",
+    message: "BrandPulse AI server is running",
+    timestamp: new Date().toISOString(),
+  });
 });
 
-app.get("/api/influencers", async (req, res) => {
+router.get("/api/influencers", async (req, res) => {
   const { query = "fitness" } = req.query;
 
   try {
@@ -48,7 +42,7 @@ app.get("/api/influencers", async (req, res) => {
   }
 });
 
-app.post("/ai-text", async (req, res) => {
+router.post("/ai-text", async (req, res) => {
   try {
     const {
       brandName,
@@ -138,6 +132,7 @@ Return JSON with EXACT structure:
 }
 `;
 
+    const ai = getGeminiClient();
     const response = await ai.models.generateContent({
       model: "gemini-3-flash-preview",
       contents: prompt,
@@ -147,7 +142,7 @@ Return JSON with EXACT structure:
     let strategy;
     try {
       strategy = JSON.parse(aiText);
-    } catch (err) {
+    } catch {
       return res.status(500).json({
         success: false,
         message: "Failed to parse AI response",
@@ -169,8 +164,4 @@ Return JSON with EXACT structure:
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`✅ Server running on http://localhost:${PORT}`);
-  console.log(`📋 Health: http://localhost:${PORT}/health`);
-  console.log(`🤖 AI Endpoint: http://localhost:${PORT}/ai-text`);
-});
+export default router;

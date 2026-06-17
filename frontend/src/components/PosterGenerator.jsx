@@ -211,7 +211,7 @@ professional graphic design, instagram ad poster`
     setImages([]);
 
     try {
-      const backendUrl = import.meta.env.VITE_BACKEND_URL || "http://localhost:4001";
+      const backendUrl = import.meta.env.VITE_API_BASE_URL || "";
       const res = await fetch(`${backendUrl}/api/generate-posters`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },

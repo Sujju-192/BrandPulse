@@ -40,7 +40,7 @@ export default function CaptionGenerator({ selectedIdea }) {
     setCopiedItem(null);
 
     try {
-      const response = await fetch('http://localhost:5000/api/captions/generate', {
+      const response = await fetch('/api/captions/generate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

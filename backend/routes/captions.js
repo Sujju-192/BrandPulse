@@ -1,30 +1,18 @@
-import dotenv from "dotenv";
-import cors from "cors";
-import express from "express";
-import { GoogleGenAI } from "@google/genai";
+import { Router } from "express";
+import { getGeminiClient } from "../lib/gemini.js";
 
-dotenv.config();
-
-const app = express();
-const PORT = process.env.PORT || 5000;
-
-app.use(express.json());
-app.use(cors());
-
-const ai = new GoogleGenAI({
-  apiKey: process.env.GEMINI_API_KEY,
-});
+const router = Router();
 
 function normalizeContent(parsed) {
   return {
     instagram_captions: parsed.instagram_captions || [],
     ad_copy: parsed.ad_copy || [],
     blog_content: parsed.blog_content || { titles: [], intro: "" },
-    ctas: parsed.ctas || []
+    ctas: parsed.ctas || [],
   };
 }
 
-app.post("/api/captions/generate", async (req, res) => {
+router.post("/api/captions/generate", async (req, res) => {
   try {
     const { prompt, tone = "professional", serviceType = "general" } = req.body;
 
@@ -70,19 +58,20 @@ User Prompt:
 ${prompt}
 `;
 
+    const ai = getGeminiClient();
     const response = await ai.models.generateContent({
       model: "gemini-3-flash-preview",
-      contents: aiPrompt
+      contents: aiPrompt,
     });
 
     const text = response.text || "{}";
     const parsed = JSON.parse(text);
 
     res.json({ status: "SUCCESS", data: normalizeContent(parsed) });
-
   } catch (err) {
+    console.error("Caption generation error:", err);
     res.status(500).json({ status: "ERROR" });
   }
 });
 
-app.listen(PORT, () => console.log("🔥 BRANDPULSE LIVE"));
+export default router;

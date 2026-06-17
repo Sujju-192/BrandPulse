@@ -1,10 +1,10 @@
-# CampaignAI: AI-Powered Marketing Strategy and Creative Automation Platform
+# BrandPulse AI: AI-Powered Marketing Strategy and Creative Automation Platform
 
 ## 1. Introduction
 
 ### 1.1 Introduction
 
-CampaignAI is an integrated digital marketing assistance platform designed to help users move from raw business ideas to actionable campaign execution. Traditional campaign planning is often fragmented: strategy planning is done in one place, content ideation in another, influencer discovery through separate tools, and creative asset generation through disconnected applications. This project addresses that fragmentation by providing one cohesive workflow where a user can define a business idea once and reuse it across all major campaign activities.
+BrandPulse AI is an integrated digital marketing assistance platform designed to help users move from raw business ideas to actionable campaign execution. Traditional campaign planning is often fragmented: strategy planning is done in one place, content ideation in another, influencer discovery through separate tools, and creative asset generation through disconnected applications. This project addresses that fragmentation by providing one cohesive workflow where a user can define a business idea once and reuse it across all major campaign activities.
 
 The platform combines:
 
@@ -29,7 +29,7 @@ The motivation for this project comes from real-world constraints faced by early
 
 Most available tools solve only one isolated problem. For example, one tool writes captions, another designs creatives, and another identifies influencers. This fragmented workflow introduces context loss: users repeatedly re-enter idea details, resulting in inconsistencies and inefficiency.
 
-CampaignAI is motivated by the principle of "single-source campaign intelligence": users define an idea once, store it in a secure database, and drive all downstream generation modules from that same data. This improves coherence, productivity, and campaign quality.
+BrandPulse AI is motivated by the principle of "single-source campaign intelligence": users define an idea once, store it in a secure database, and drive all downstream generation modules from that same data. This improves coherence, productivity, and campaign quality.
 
 ---
 
@@ -362,7 +362,7 @@ The implemented solution demonstrates that even at mini-project scale, adopting 
 7. **Production Deployment**
    - Containerization, CI/CD, secret management, and observability tooling.
 
-In summary, CampaignAI forms a robust foundation for future research and production-level expansion in AI-augmented marketing automation.
+In summary, BrandPulse AI forms a robust foundation for future research and production-level expansion in AI-augmented marketing automation.
 
 ---
 
@@ -370,7 +370,7 @@ In summary, CampaignAI forms a robust foundation for future research and product
 
 ### Required Environment Variables
 
-Create `.env` files as needed and define:
+Create `backend/.env` (copy from `backend/.env.example`) and define:
 
 - `GEMINI_API_KEY`
 - `YOUTUBE_API_KEY`
@@ -379,13 +379,25 @@ Create `.env` files as needed and define:
 
 ### Run Services (Typical Local Flow)
 
-1. Start frontend (`frontend`)
+1. Copy `backend/.env.example` to `backend/.env` and fill in your API keys.
+2. Start backend
+   - `cd backend`
+   - `npm install`
+   - `nodemon server.js`
+3. Start frontend
+   - `cd frontend`
+   - `npm install`
    - `npm run dev`
-2. Start main backend (`saishbackend`)
-   - `node server.js`
-3. Start audio + influencer backend (`backendArnav`)
-   - `node index.js` (audio)
-   - `node influencer.js` (influencer)
+
+All backend APIs run on a single server (default port `3000`). The Vite dev server proxies API requests automatically.
+
+### Project Structure
+
+```
+BrandPulse/
+├── backend/     # Unified Express API (nodemon server.js)
+└── frontend/    # React + Vite app
+```
 
 ### Notes
 
