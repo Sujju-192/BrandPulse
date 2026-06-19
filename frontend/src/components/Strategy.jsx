@@ -79,7 +79,10 @@ export default function Strategy() {
       // Transform the prompt into REQUEST_BODY format
       const requestBody = extractDataFromPrompt(content.prompt);
       console.log("Sending to backend:", requestBody);
-      
+      console.log(
+        "API URL:",
+        import.meta.env.VITE_API_URL
+      );
       const res = await fetch(
         `${import.meta.env.VITE_API_URL}/ai-text`,
         {
