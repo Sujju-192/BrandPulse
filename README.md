@@ -1,57 +1,47 @@
-# 🚀 CodeCollab
-### From Solo Coding to Real-Time AI Collaboration – Powered by Intelligent Development Tools
+# 🚀 BrandPulse AI
+### From Business Idea to Full-Funnel Campaign – Powered by AI
 
 <p align="center">
   <img src="https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=white" alt="React" />
-  <img src="https://img.shields.io/badge/Vite-Build-646CFF?logo=vite&logoColor=white" alt="Vite" />
-  <img src="https://img.shields.io/badge/Node.js-Express-339933?logo=node.js&logoColor=white" alt="Node" />
-  <img src="https://img.shields.io/badge/Monaco-Editor-007ACC?logo=visualstudiocode&logoColor=white" alt="Monaco" />
-  <img src="https://img.shields.io/badge/WebRTC-Peer--to--Peer-333333?logo=webrtc&logoColor=white" alt="WebRTC" />
-  <img src="https://img.shields.io/badge/Yjs-CRDT-FF6C2C" alt="Yjs" />
-  <img src="https://img.shields.io/badge/Gemini-AI-8E75B2" alt="Gemini" />
-  <img src="https://img.shields.io/badge/Tailwind-CSS-06B6D4?logo=tailwindcss&logoColor=white" alt="Tailwind" />
-  <img src="https://img.shields.io/badge/Liveblocks-Collaboration-000000" alt="Liveblocks" />
+  <img src="https://img.shields.io/badge/Node.js-Express-339933?logo=node.js&logoColor=white" alt="Node.js" />
+  <img src="https://img.shields.io/badge/Firebase-Auth%20%2B%20Firestore-FFCA28?logo=firebase&logoColor=black" alt="Firebase" />
+  <img src="https://img.shields.io/badge/Gemini-AI-8E75B2?logo=google&logoColor=white" alt="Gemini" />
+  <img src="https://img.shields.io/badge/ElevenLabs-TTS-000000?logo=elevenlabs&logoColor=white" alt="ElevenLabs" />
+  <img src="https://img.shields.io/badge/YouTube-Data%20API-FF0000?logo=youtube&logoColor=white" alt="YouTube" />
+  <img src="https://img.shields.io/badge/Frontend-Vercel-black?logo=vercel&logoColor=white" alt="Vercel" />
+  <img src="https://img.shields.io/badge/Backend-Render-46E3B7?logo=render&logoColor=white" alt="Render" />
+  <img src="https://img.shields.io/badge/Tailwind-CSS-06B6D4?logo=tailwindcss&logoColor=white" alt="Tailwind CSS" />
 </p>
 
 ---
 
 ## 📌 Overview
 
-CodeCollab is an **AI-powered collaborative development platform** designed to make coding, interviewing, learning, and team collaboration seamless.
+BrandPulse AI is an **all-in-one marketing intelligence platform** that transforms a raw business idea into a complete, execution-ready campaign.
 
-Traditional coding collaboration usually requires multiple disconnected tools:
+Instead of switching between multiple tools and repeatedly entering the same information, BrandPulse allows users to define an idea **once**, then automatically reuse that context across all campaign activities.
 
-- Code editor
-- Video calls
-- Documentation websites
-- Whiteboard applications
-- Code execution platforms
-- AI assistants
+The platform intelligently connects:
 
-This creates interruptions and context switching.
+- AI strategy generation
+- Creative content generation
+- Audio advertisement generation
+- Influencer discovery
+- Outreach drafting
+- Persistent cloud storage
 
-CodeCollab solves this by combining everything into **one unified workspace** where users can:
-
-- Write code together in real time
-- Ask AI for help
-- Run programs instantly
-- Draw architecture diagrams
-- Learn concepts
-- Share rooms instantly
-
-Create a room → Share link → Start coding.
+All under one unified workflow.
 
 ---
 
-## 🌟 Why CodeCollab?
+## 🌟 Why BrandPulse AI?
 
-- 🔄 **Real-Time Multiplayer Editing**
-- 🤖 **AI Integrated Inside Development Workflow**
-- ⚡ **Instant Multi-Language Code Execution**
-- 📚 **Interactive Learning Hub**
-- 🎨 **Collaborative Whiteboard**
-- 🔗 **One Click Shareable Rooms**
-- 🔒 **No Account Required**
+- 🧠 **One Idea, One Workflow** — No repetitive inputs or context switching
+- 🤖 **AI First Approach** — Generate strategies, content, scripts, and ads
+- 📊 **Always in Sync** — Persistent Firestore-backed data across sessions
+- 🎧 **Multimedia Campaign Generation** — Text + Audio advertisements
+- 🔎 **Smart Influencer Discovery** — Creator search using YouTube APIs
+- 🔒 **Secure & Personalized** — Google authentication with isolated user data
 
 ---
 
@@ -59,47 +49,55 @@ Create a room → Share link → Start coding.
 
 ### 🏠 Landing Page
 
-![Landing](./screenshots/landing.png)
+![Landing Page](./screenshots/landing-page.png)
 
 ---
 
-### 💻 Collaborative Editor
+### 📊 Dashboard
 
-![Editor](./screenshots/editor.png)
-
----
-
-### 🤖 AI Coding Assistant
-
-![AI Assistant](./screenshots/ai-panel.png)
+![Dashboard](./screenshots/dashboard.png)
 
 ---
 
-### 👥 Live Collaboration & Multi-Cursor Support
+### 💡 Your Ideas — Central Campaign Hub
 
-![Collaboration](./screenshots/collaboration.png)
-
----
-
-### 📚 Interactive Documentation Hub
-
-![Documentation](./screenshots/documentation.png)
+![Ideas](./screenshots/ideas.png)
 
 ---
 
-### 🎨 Collaborative Whiteboard
+### 🧠 AI Strategy Generator
 
-![Whiteboard](./screenshots/whiteboard.png)
+![Strategy](./screenshots/strategy1.png)
+
+![Strategy](./screenshots/strategy2.png)
+
+![Strategy](./screenshots/strategy3.png)
+
+![Strategy](./screenshots/strategy4.png)
+
+---
+
+### 🎨 Creative Content Generator
+
+![Creative Content](./screenshots/content.png)
+
+![Audio Advertisement](./screenshots/voice-ad.png)
+
+---
+
+### 👥 Influencer Discovery Engine
+
+![Influencers](./screenshots/influencers.png)
 
 ---
 
 # 🎥 Demo
 
-Experience CodeCollab live:
+Experience BrandPulse AI live:
 
-🔗 **[Launch App](YOUR_DEPLOYMENT_LINK)**
+🔗 **[Launch App](https://brand-pulse-three.vercel.app/)**
 
-Watch walkthrough:
+Prefer a walkthrough?
 
 🎬 **[Watch Demo](YOUR_VIDEO_LINK)**
 
@@ -108,30 +106,30 @@ Watch walkthrough:
 ## ✨ Core Features
 
 | Feature | Description | Powered By |
-|----------|-------------|-------------|
-| 🔄 **Real-Time Collaboration** | Multi-user code editing, cursor synchronization, room collaboration | Yjs + WebRTC |
-| 🤖 **AI Coding Assistant** | Code generation, debugging, explanations, optimization | Gemini + AI Models |
-| ⚡ **Instant Code Execution** | Execute multiple programming languages directly | Piston API |
-| 📚 **Learning Hub** | Interactive documentation and examples | React |
-| 🎨 **Collaborative Whiteboard** | Draw diagrams and brainstorm ideas | Whiteboard + AI |
-| 🔗 **Room Sharing** | Instant room creation and sharing | Liveblocks |
-| 🔒 **Private Collaboration** | Peer-to-peer synchronization without storing code | WebRTC |
+|-----------|-------------|-------------|
+| 🔐 **Google Authentication** | One-click login, protected routes, persistent sessions | Firebase Auth |
+| ☁️ **Cloud Database** | Save, edit, delete campaign ideas with user isolation | Firestore |
+| 🧠 **AI Strategy Generator** | Marketing strategy, audience targeting, campaign planning | Gemini |
+| 🎨 **Creative Content Generator** | Headlines, captions, CTAs, ad copy generation | Gemini |
+| 🎤 **Audio Ad Studio** | Script generation and AI voice synthesis | Gemini + ElevenLabs |
+| 👥 **Influencer Discovery** | Search creators, filter audiences, outreach generation | YouTube API + Gemini |
+| 🔄 **Unified Workflow** | One campaign idea powers every module | React Context + Express |
 
 ---
 
-# 🏗 System Architecture
+# 🏗️ System Architecture
 
-![Architecture](./screenshots/architecture.png)
-
----
-
-### ⚖️ Traditional Workflow vs CodeCollab
-
-![Comparison](./screenshots/comparison.png)
+![Architecture Diagram](./screenshots/flowchart.png)
 
 ---
 
-### High-Level Flow
+### ⚖️ Traditional Workflow vs BrandPulse AI
+
+![Comparison](./screenshots/comparision.png)
+
+---
+
+## High-Level Flow
 
 ```text
 User
@@ -139,26 +137,59 @@ User
    ▼
 React + Vite Frontend
    │
-   ├── Monaco Editor
-   ├── Collaboration Layer
-   ├── AI Assistant
-   ├── Whiteboard
-   └── Learning Hub
-          │
-          ▼
-Node.js + Express Backend
-          │
-          ├── WebSocket Signaling
-          ├── Collaboration Services
-          └── AI Request Handling
-                   │
-                   ▼
-External APIs
-          │
-          ├── Gemini AI
-          ├── Piston API
-          └── Liveblocks
+   ├── Firebase Authentication
+   ├── Firestore Database
+   └── Express Backend APIs
+         │
+         ├── Gemini (AI Text Generation)
+         ├── ElevenLabs (Voice Synthesis)
+         └── YouTube Data API (Influencer Discovery)
 ```
+
+---
+
+## 📈 Problems Solved
+
+### Context Fragmentation
+
+Traditional workflows require users to repeatedly provide campaign information.
+
+BrandPulse solves this through:
+
+- Shared active campaign context
+- Cross-module synchronization
+- Single-source campaign intelligence
+
+---
+
+### Persistent Data Storage
+
+Migrated from browser-only storage to:
+
+- Cloud Firestore
+- User-specific data access
+- Cross-device synchronization
+
+---
+
+### AI Workflow Integration
+
+Integrated multiple AI providers into one workflow:
+
+- Gemini
+- ElevenLabs
+- YouTube Data API
+
+---
+
+### Better Error Handling
+
+Added:
+
+- Backend API validation
+- User-friendly errors
+- API failure transparency
+- Fallback states
 
 ---
 
@@ -169,120 +200,89 @@ External APIs
 - React
 - Vite
 - Tailwind CSS
-- Monaco Editor
-- Framer Motion
-- React Hot Toast
-
-### Collaboration Layer
-
-- Yjs (CRDT)
-- WebRTC
-- Liveblocks
+- React Router
+- Context API
 
 ### Backend
 
 - Node.js
 - Express
-- WebSocket
+- node-fetch
 - dotenv
 
-### AI Integration
+### Authentication
+
+- Firebase Authentication
+- Google OAuth
+
+### Database
+
+- Firebase Firestore
+
+### AI Services
 
 - Google Gemini
-- Multiple AI Models
+- ElevenLabs
 
-### Execution Engine
+### External APIs
 
-- Piston API
-- Browser JavaScript Sandbox
+- YouTube Data API v3
 
 ---
 
 ## 📂 Project Structure
 
 ```text
-CodeCollab/
+BrandPulse/
 │
-├── client/
+├── frontend/
 │   ├── src/
-│   ├── components/
 │   ├── pages/
-│   ├── hooks/
-│   ├── services/
-│   └── public/
+│   ├── components/
+│   ├── context/
+│   └── firebase.js
 │
-├── server/
+├── backend/
 │   ├── routes/
 │   ├── services/
-│   ├── websocket/
+│   ├── lib/
 │   └── server.js
+│
+├── screenshots/
 │
 └── README.md
 ```
-
----
-
-## 📈 Challenges Solved
-
-### Real-Time Synchronization
-
-Implemented CRDT-based synchronization using Yjs to ensure:
-
-- Conflict-free editing
-- Live updates
-- Multi-user collaboration
-
----
-
-### AI Context Handling
-
-Designed an AI workflow capable of:
-
-- Understanding editor content
-- Providing contextual responses
-- Generating meaningful suggestions
-
----
-
-### Execution Pipeline
-
-Implemented:
-
-- Browser-side execution
-- External runtime execution
-- Multiple language support
-
----
-
-### User Experience Improvements
-
-Added:
-
-- Live cursor tracking
-- Notifications
-- Smooth transitions
-- Responsive layouts
-
----
-
 ## 🚀 Installation & Local Setup
 
-### Clone Repository
+### Prerequisites
+
+Make sure the following are installed on your system:
+
+- Node.js (v16+ recommended)
+- npm or yarn
+- Firebase project setup
+- Gemini API Key
+- YouTube Data API Key
+- ElevenLabs API Key
+
+---
+
+## 1️⃣ Clone Repository
 
 ```bash
-git clone https://github.com/yourusername/CodeCollab.git
+git clone [https://github.com/yourusername/BrandPulse-AI.git](https://github.com/Sujju-192/BrandPulse.git)
 
-cd CodeCollab
+cd BrandPulse-AI
 ```
 
 ---
 
-## Backend Setup
+## 2️⃣ Backend Setup
 
-Move into backend:
+Navigate to backend:
 
 ```bash
-cd server
+cd backend
 ```
 
 Install dependencies:
@@ -294,26 +294,28 @@ npm install
 Create:
 
 ```bash
-server/.env
+backend/.env
 ```
 
-Add:
+Add the following:
 
 ```env
-GITHUB_TOKEN=your_github_token
+GEMINI_API_KEY=your_gemini_api_key
 
-AI_ENABLED=true
+YOUTUBE_API_KEY=your_youtube_api_key
 
-GEMINI_API_KEY=your_gemini_key
+ELEVENLABS_API_KEY=your_elevenlabs_api_key
+
+ELEVENLABS_VOICE_ID=your_voice_id
 ```
 
-Run backend:
+Start backend:
 
 ```bash
 npm run dev
 ```
 
-Backend runs on:
+Backend starts on:
 
 ```bash
 http://localhost:3000
@@ -321,12 +323,14 @@ http://localhost:3000
 
 ---
 
-## Frontend Setup
+## 3️⃣ Frontend Setup
 
-Open another terminal:
+Open another terminal.
+
+Move into frontend:
 
 ```bash
-cd client
+cd frontend
 ```
 
 Install dependencies:
@@ -338,13 +342,13 @@ npm install
 Create:
 
 ```bash
-client/.env
+frontend/.env
 ```
 
 Add:
 
 ```env
-VITE_API_BASE_URL=http://localhost:3000
+VITE_API_URL=http://localhost:3000
 ```
 
 Run frontend:
@@ -353,7 +357,7 @@ Run frontend:
 npm run dev
 ```
 
-Frontend runs on:
+Frontend starts on:
 
 ```bash
 http://localhost:5173
@@ -361,23 +365,106 @@ http://localhost:5173
 
 ---
 
-## ▶️ Running Application
+## 4️⃣ Firebase Setup
+
+Create a Firebase project:
+
+1. Open Firebase Console
+2. Create a new project
+3. Enable Google Authentication
+4. Create Firestore Database
+5. Select production mode or test mode
+6. Copy Firebase configuration
+
+Open:
+
+```bash
+frontend/src/firebase.js
+```
+
+Replace configuration:
+
+```javascript
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_PROJECT.firebaseapp.com",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_PROJECT.appspot.com",
+  messagingSenderId: "YOUR_SENDER_ID",
+  appId: "YOUR_APP_ID"
+};
+```
+
+---
+
+## 5️⃣ Enable Required APIs
+
+### Google Gemini API
+
+- Open Google AI Studio
+- Generate API Key
+- Copy key into `.env`
+
+---
+
+### YouTube Data API v3
+
+Steps:
+
+1. Open Google Cloud Console
+2. Create project
+3. Enable:
+
+```text
+YouTube Data API v3
+```
+
+4. Create credentials
+
+5. Create:
+
+```text
+API Key
+```
+
+6. Restrict API key to:
+
+```text
+YouTube Data API v3
+```
+
+---
+
+### ElevenLabs
+
+Steps:
+
+1. Create ElevenLabs account
+2. Generate API key
+3. Copy API key into `.env`
+4. Select preferred Voice ID
+
+---
+
+## ▶️ Running Full Application
 
 Start backend:
 
 ```bash
-cd server
+cd backend
+
 npm run dev
 ```
 
-Open new terminal:
+Open another terminal:
 
 ```bash
-cd client
+cd frontend
+
 npm run dev
 ```
 
-Open browser:
+Visit:
 
 ```bash
 http://localhost:5173
@@ -385,56 +472,75 @@ http://localhost:5173
 
 ---
 
-## 📚 Learning Hub
+## 📂 Project Structure
 
-Interactive programming guides included:
-
-### JavaScript
-
-- ES6+
-- Async/Await
-- DOM Manipulation
-
-### Python
-
-- Functions
-- OOP
-- Libraries
-
-### Java
-
-- Collections
-- Multithreading
-
-### C++
-
-- STL
-- Memory Management
-
-### C
-
-- Pointers
-- File Handling
+```text
+BrandPulse-AI/
+│
+├── frontend/
+│   │
+│   ├── src/
+│   ├── components/
+│   ├── pages/
+│   ├── context/
+│   ├── hooks/
+│   └── firebase.js
+│
+├── backend/
+│   │
+│   ├── routes/
+│   ├── lib/
+│   ├── services/
+│   ├── middleware/
+│   └── server.js
+│
+├── screenshots/
+│
+└── README.md
+```
 
 ---
 
-## 🔮 Future Enhancements
+## 🔥 Firestore Rules (Development)
 
-- Authentication and room history
-- Video and voice collaboration
-- Multi-file support
-- AI-generated unit tests
-- Cloud project storage
-- Deployment support
-- Community snippets and templates
-- Team workspaces
+For testing:
+
+```javascript
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    match /{document=**} {
+      allow read, write: if request.auth != null;
+    }
+
+  }
+}
+```
 
 ---
 
-<p align="center">
+## 🌐 Deployment
 
-Built for developers who want collaboration and AI in a single workspace.
+Frontend:
 
-Happy Coding 🚀
+- Vercel
 
-</p>
+Backend:
+
+- Render
+
+Database & Authentication:
+
+- Firebase
+
+---
+
+## ⚠️ Notes
+
+- Ensure all API keys are valid
+- Firestore database must be initialized
+- Google Authentication must be enabled
+- Invalid API keys may cause backend failures
+- Backend URL should be updated for production deployment
