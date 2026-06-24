@@ -7,7 +7,7 @@ import {
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
-// Animated counter component (plain JS)
+// ------------------- Animated Counter -------------------
 const AnimatedCounter = ({ value, suffix = '' }) => {
   const [count, setCount] = useState(0);
   const ref = useRef(null);
@@ -45,7 +45,7 @@ const AnimatedCounter = ({ value, suffix = '' }) => {
   return <span ref={ref}>{displayValue}</span>;
 };
 
-// Floating particles component
+// ------------------- Floating Particles -------------------
 const FloatingParticles = () => {
   const particles = Array.from({ length: 20 }).map((_, i) => ({
     id: i,
@@ -71,7 +71,58 @@ const FloatingParticles = () => {
   );
 };
 
-// Magnetic button component
+// ------------------- Parallax Background Blobs -------------------
+const ParallaxBlobs = () => {
+  const { scrollY } = useScroll();
+  const blob1Y = useTransform(scrollY, [0, 1000], [0, -150]);
+  const blob2Y = useTransform(scrollY, [0, 1000], [0, 80]);
+  const blob3Y = useTransform(scrollY, [0, 1000], [0, -60]);
+
+  return (
+    <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10">
+      <motion.div
+        className="absolute top-20 left-1/4 w-96 h-96 bg-purple-900/20 rounded-full blur-3xl"
+        style={{ y: blob1Y }}
+        animate={{ x: [0, 100, 0], y: [0, 50, 0] }}
+        transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div
+        className="absolute bottom-20 right-1/4 w-80 h-80 bg-pink-900/20 rounded-full blur-3xl"
+        style={{ y: blob2Y }}
+        animate={{ x: [0, -80, 0], y: [0, -40, 0] }}
+        transition={{ duration: 25, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+      />
+      <motion.div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-900/10 rounded-full blur-3xl"
+        style={{ y: blob3Y }}
+        animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
+        transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+      />
+    </div>
+  );
+};
+
+// ------------------- Mouse-follow Glow -------------------
+const CursorGlow = () => {
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      setMousePos({ x: e.clientX, y: e.clientY });
+    };
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+  return (
+    <div
+      className="fixed inset-0 pointer-events-none z-0"
+      style={{
+        background: `radial-gradient(600px at ${mousePos.x}px ${mousePos.y}px, rgba(147,51,234,0.15), transparent 80%)`,
+      }}
+    />
+  );
+};
+
+// ------------------- Magnetic Button -------------------
 const MagneticButton = ({ children, className, ...props }) => {
   const ref = useRef(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -101,13 +152,14 @@ const MagneticButton = ({ children, className, ...props }) => {
   );
 };
 
-// Section wrapper with scroll animations
-const Section = ({ children, className = "", delay = 0 }) => {
+// ------------------- Section Wrapper -------------------
+const Section = ({ children, className = "", delay = 0, id }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   
   return (
     <motion.div
+      id={id}
       ref={ref}
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
@@ -119,7 +171,7 @@ const Section = ({ children, className = "", delay = 0 }) => {
   );
 };
 
-// Staggered container
+// ------------------- Staggered Container -------------------
 const StaggeredContainer = ({ children, className = "" }) => (
   <motion.div
     initial="hidden"
@@ -135,7 +187,7 @@ const StaggeredContainer = ({ children, className = "" }) => (
   </motion.div>
 );
 
-// Staggered card
+// ------------------- Staggered Card -------------------
 const StaggeredCard = ({ children, className = "" }) => (
   <motion.div
     variants={{
@@ -149,6 +201,7 @@ const StaggeredCard = ({ children, className = "" }) => (
   </motion.div>
 );
 
+// ------------------- Main Landing Component -------------------
 export default function Landing() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [signingIn, setSigningIn] = useState(false);
@@ -157,6 +210,15 @@ export default function Landing() {
   const scale = useTransform(scrollYProgress, [0, 0.2], [1, 0.95]);
   const navigate = useNavigate();
   const { user, signInWithGoogle } = useAuth();
+
+  // Refs for scrolling sections – only Features and How it Works remain
+  const featuresRef = useRef(null);
+  const processRef = useRef(null);
+
+  const handleScrollTo = (ref) => {
+    ref.current?.scrollIntoView({ behavior: 'smooth' });
+    setMobileMenuOpen(false);
+  };
 
   const handleGoogleSignIn = async () => {
     try {
@@ -212,27 +274,11 @@ export default function Landing() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#0A0A0A] text-white overflow-x-hidden">
-      {/* Animated Background Blobs */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <motion.div
-          className="absolute top-20 left-1/4 w-96 h-96 bg-purple-900/20 rounded-full blur-3xl"
-          animate={{ x: [0, 100, 0], y: [0, 50, 0] }}
-          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="absolute bottom-20 right-1/4 w-80 h-80 bg-pink-900/20 rounded-full blur-3xl"
-          animate={{ x: [0, -80, 0], y: [0, -40, 0] }}
-          transition={{ duration: 25, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-        />
-        <motion.div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-900/10 rounded-full blur-3xl"
-          animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
-          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <FloatingParticles />
-      </div>
-
+    <div className="min-h-screen bg-[#0A0A0A] text-white overflow-x-hidden relative">
+      <CursorGlow />
+      <ParallaxBlobs />
+      <FloatingParticles />
+      
       {/* Navigation */}
       <motion.nav 
         className="relative z-50 container mx-auto px-6 py-6"
@@ -245,6 +291,7 @@ export default function Landing() {
             className="flex items-center gap-3 cursor-pointer"
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 400 }}
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
             <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center">
               <Rocket className="w-6 h-6" />
@@ -253,18 +300,21 @@ export default function Landing() {
           </motion.div>
           
           <div className="hidden lg:flex items-center gap-8">
-            {['Features', 'Case Studies', 'Pricing'].map((item, i) => (
-              <motion.a
-                key={item}
-                href="#"
-                className="text-gray-400 hover:text-white transition-colors duration-300"
+            {[
+              { label: 'Features', ref: featuresRef },
+              { label: 'How it Works', ref: processRef },
+            ].map((item, i) => (
+              <motion.button
+                key={item.label}
+                onClick={() => handleScrollTo(item.ref)}
+                className="text-gray-400 hover:text-white transition-colors duration-300 bg-transparent border-none cursor-pointer text-base"
                 whileHover={{ scale: 1.05, color: "#fff" }}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1 }}
               >
-                {item}
-              </motion.a>
+                {item.label}
+              </motion.button>
             ))}
           </div>
           
@@ -293,10 +343,17 @@ export default function Landing() {
               className="lg:hidden mt-4 py-4 border-t border-gray-800"
             >
               <div className="flex flex-col gap-4">
-                {['Features', 'Case Studies', 'Pricing'].map((item) => (
-                  <a key={item} href="#" className="text-gray-400 hover:text-white py-2">
-                    {item}
-                  </a>
+                {[
+                  { label: 'Features', ref: featuresRef },
+                  { label: 'How it Works', ref: processRef },
+                ].map((item) => (
+                  <button
+                    key={item.label}
+                    onClick={() => handleScrollTo(item.ref)}
+                    className="text-gray-400 hover:text-white py-2 text-left bg-transparent border-none cursor-pointer"
+                  >
+                    {item.label}
+                  </button>
                 ))}
                 <button
                   onClick={() => (user ? navigate("/app") : handleGoogleSignIn())}
@@ -363,11 +420,12 @@ export default function Landing() {
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </MagneticButton>
             <motion.button 
+              onClick={() => handleScrollTo(featuresRef)}
               className="px-8 py-3.5 rounded-full border border-gray-800 hover:border-gray-600 transition-colors duration-300 text-lg"
               whileHover={{ scale: 1.05, borderColor: "#8b5cf6" }}
               whileTap={{ scale: 0.95 }}
             >
-              Watch Demo
+              Explore Features
             </motion.button>
           </motion.div>
         </div>
@@ -400,7 +458,7 @@ export default function Landing() {
       </Section>
 
       {/* Features Grid */}
-      <section className="relative container mx-auto px-6 py-20">
+      <section ref={featuresRef} id="features" className="relative container mx-auto px-6 py-20 scroll-mt-20">
         <div className="text-center mb-16">
           <motion.h2 
             className="text-4xl md:text-5xl font-light mb-4"
@@ -455,8 +513,8 @@ export default function Landing() {
         </StaggeredContainer>
       </section>
 
-      {/* Process Section */}
-      <section className="relative container mx-auto px-6 py-20">
+      {/* Process Section (How it Works) */}
+      <section ref={processRef} id="process" className="relative container mx-auto px-6 py-20 scroll-mt-20">
         <div className="max-w-4xl mx-auto">
           <motion.h2 
             className="text-4xl font-light text-center mb-16"
@@ -581,6 +639,7 @@ export default function Landing() {
             <motion.div 
               className="flex items-center gap-3 cursor-pointer"
               whileHover={{ scale: 1.05 }}
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             >
               <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center">
                 <Rocket className="w-6 h-6" />
@@ -619,6 +678,9 @@ export default function Landing() {
         .animate-gradient {
           animation: gradient 3s ease infinite;
           background-size: 200% auto;
+        }
+        html {
+          scroll-behavior: smooth;
         }
       `}</style>
     </div>
